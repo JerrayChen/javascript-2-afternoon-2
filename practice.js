@@ -18,7 +18,9 @@ var arr = [10,20,30];
 */
 
 //Code Here
-
+function first(ar){
+  return ar[0];
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -33,7 +35,9 @@ var arr = [40,50,60];
 */
 
 //Code Here
-
+function last(ar){
+  return ar[ar.length-1];
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -48,7 +52,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 */
 
 //Code Here
-
+function looper(arr){
+  for (let i = 0; i < arr.length; i++){
+    alert(arr[i]);
+  }
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -63,7 +71,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 */
 
 //Code Here
-
+function reversedLooper(arr){
+  for(let i = arr.length - 1; i >= 0; i--){
+    alert(arr[i]);
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -78,7 +90,15 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 */
 
 //Code Here
-
+function evenFinder(arr){
+  result = [];
+  for (i = 0; i < arr.length; i++){
+    if (arr[i] % 2 == 0){
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
 
 
 
@@ -107,7 +127,18 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
-
+function divider(arr){
+  let evenArr = [];
+  let oddArr = [];
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] % 2 == 0){
+      evenArr.push(arr[i]);
+    }else {
+      oddArr.push(arr[i]);
+    }
+  }
+  return [evenArr, oddArr];
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -129,7 +160,18 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
+function finder(arr){
+  let randomNumber = getRandomArbitrary();
+  //console.log(randomNumer);
+  let result = false;
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === randomNumber){
+      result = true;
+      break;
+    }
+  }
+  return result;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -142,9 +184,11 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Here we're going to write a function that mimics going shopping and checking things off of our grocery list and adding new items to our list.
 
   Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second is an item to remove from myGroceryList. 
-  If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item from the your grocery list and return the new, updated grocery list.
+  If the second argument (or the item to add or remove) matches an item in myGroceryList, 
+  remove that item from the your grocery list and return the new, updated grocery list.
 
-  Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
+  Once you do that, write another function called addItem that is given two arguments, 
+  the first is myGroceryList and the second is an item to add to your grocery list. 
   In addItem add the item you passed in to myGroceryList then return the new, updated grocery list.
 
   In both removeItem and addItem check to see if the 'myGroceryList' and 'item' arguments are truthy.
@@ -159,6 +203,31 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+//check arr is array and item is string.
+function checkTruthy(arr, item){
+  //return true if both of them are truthy.
+  return Array.isArray(arr) && typeof(item) == 'string';
+}
+
+function removeItem(arr, item){
+  if (!checkTruthy(arr, item)){
+    return [];
+  }
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === item){
+      arr.splice(i,1);
+    }
+  }
+  return arr;
+}
+
+function addItem(arr, item){
+  if (!checkTruthy(arr, item)){
+    return [];
+  }
+  arr.push(item);
+  return arr;
+}
 
 
 ////////// PROBLEM 9 //////////
@@ -168,7 +237,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
+function maker(){
+  let result = []
+  for (let i = 1; i <= 215 ;i++){
+    result.push(i);
+  }
+  return result;
+}
 
 
 ////////// PROBLEM 10 //////////
@@ -184,7 +259,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-
+function addTen(nums){
+  let result = [];
+  for (let i = 0; i < nums.length; i++){
+    result.push(parseInt(nums[i])+10);
+  }
+  return result;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -209,7 +290,13 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function longer(arr1, arr2){
+  if (arr1.length>arr2.length){
+    return arr1;
+  }else{
+    return arr2;
+  }
+}
 
 
 /*
@@ -221,7 +308,15 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function both(arr1, arr2){
+  result = [];
+  for (let i = 0; i < arr1.length; i++){
+    if (arr2.includes(arr1[i])){
+      result.push(arr1[i]);
+    }
+  }
+  return result;
+}
 
 
 ////////// PROBLEM 12 //////////
@@ -262,8 +357,11 @@ var colt = {
 */
 
 //Code Here
-
-
+devMountainEmployees.push(joe);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
+console.log(devMountainEmployees.length);
 
 /*
   Now let's say Cahlan has to take a leave of absence.
@@ -271,7 +369,11 @@ var colt = {
 */
 
 //Code Here
-
+for (let i = 0; i < devMountainEmployees.length; i++){
+  if (devMountainEmployees[i].name == 'Cahlan'){
+    devMountainEmployees.splice(i,1);
+  }
+}
 
 
 ////////// PROBLEM 13 //////////
@@ -283,7 +385,7 @@ var colt = {
 */
 
 //Code Here
-
+users = [];
 
 
 /*
@@ -304,8 +406,21 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
-
-
+users.push(user1);
+users.push({
+  name: 'John Johnson',
+  email: 'jjohnson@devmounta.in',
+  password: 'jjj5566',
+  username: 'notjohn'
+}
+);
+users.push({
+  name: 'Tony Lee',
+  email: 'tlee@devmounta.in',
+  password: 'ttt5566',
+  username: 'istony'
+}
+);
 
 /*
   Now you have a very common data structure. 
@@ -318,7 +433,11 @@ var user1 = {
 */
 
 //Code Here
-
+for (let i = 0; i < users.length; i++){
+  if (users[i].email == 'mark.mciver@devmounta.in'){
+    users.splice(i,1);
+  }
+}
 
 
 /*
